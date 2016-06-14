@@ -20,8 +20,8 @@ class ADXL345
 {
 public:
 	ADXL345();
-	int get_address(void);
-	void PowerOn(void);
+	int get_address_ADXL345(void);
+	void PowerOn_ADXL345(void);
 	void read_accelerometer(void);
 	int get_accelerometer_x(void);
 	int get_accelerometer_y(void);

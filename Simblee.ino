@@ -1,20 +1,26 @@
 #include "Sensors//ADXL345.h"
+#include "Sensors//HMC5883L.h"
 #include <Wire.h>
-ADXL345 adxl345;
 
-void setup() {
+//ADXL345 adxl345;
+HMC5883L hmc5883l;
+
+void setup() {  
   Serial.begin(9600);
   Wire.begin();
-  adxl345.PowerOn();
+  
+  hmc5883l = HMC5883L();
+  hmc5883l.PowerOn_HMC5883();
 }
 
 void loop() { 
-  adxl345.read_accelerometer();
-  Serial.print("x= ");
-  Serial.print(adxl345.get_accelerometer_x());  
-  Serial.print(" ; y= ");
-  Serial.print(adxl345.get_accelerometer_y());  
-  Serial.print(" ; z= ");
-  Serial.println(adxl345.get_accelerometer_z());  
-  Serial.println("****************");
+  hmc5883l.read_compass();
+  Serial.print("x = ");
+  Serial.print(hmc5883l.get_compass_x());
+  Serial.print(" ; y = ");
+  Serial.print(hmc5883l.get_compass_y());
+  Serial.print(" ; z = ");
+  Serial.println(hmc5883l.get_compass_z());
+  Serial.println("*************************");
+  delay(67);
 }

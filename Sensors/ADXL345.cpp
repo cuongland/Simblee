@@ -7,7 +7,7 @@ ADXL345::ADXL345()
 {
 }
 
-void ADXL345::PowerOn(void)
+void ADXL345::PowerOn_ADXL345(void)
 {
 	Wire.beginTransmission(ADDRESS_ADXL35_);
 	Wire.write(POWER_CTL_REG);
@@ -52,7 +52,7 @@ int ADXL345::get_accelerometer_z(void)
 {
 	return accelerometer_z;
 }
-int ADXL345::get_address(void)
+int ADXL345::get_address_ADXL345(void)
 {
 	return ADDRESS_ADXL35_;
 }
